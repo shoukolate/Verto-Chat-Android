@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="org.dynamicsoft.VertoChat.android">
+
+  <uses-permission android:name="android.permission.INTERNET"/>
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+  <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE"/>
+  <uses-permission android:name="android.permission.WAKE_LOCK"/>
+  <uses-permission android:name="android.permission.VIBRATE"/>
+
+  <uses-feature android:name="android.hardware.wifi"/>
+
+  <application android:label="@string/app_name"
+               android:icon="@drawable/ic_launcher"
+               android:theme="@style/Theme.VertoChat.Light"
+               android:allowBackup="true">
+
+    <!-- Sets launchMode to singleTask to make sure quit works like expected after using the private chat.
+         If not set, then using quit from the main chat will open the last private chat,
+         and pressing the back button will again open the main chat, and so on. -->
+    <activity android:name=".controller.MainChatController"
+              android:launchMode="singleTask">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+
+    <activity android:name=".controller.SettingsController"
+              android:label="@string/settings_title"/>
+
+    <!-- Sets windowSoftInputMode to adjustResize to keep the software keyboard from pushing the text view up,
+         making it difficult to see the messages at the top. -->
+    <activity android:name=".controller.PrivateChatController"
+              android:label="@string/private_chat_title"
+              android:windowSoftInputMode="adjustResize"/>
+
+    <activity android:name=".controller.SendFileController"
+              android:theme="@android:style/Theme.Dialog">
+      <intent-filter>
+        <action android:name="android.intent.action.SEND" />
+        <category android:name="android.intent.category.DEFAULT"/>
+        <data android:mimeType="*/*"/>
+      </intent-filter>
+    </activity>
+
+    <!-- Sets taskAffinity to keep the previous KouChat activity from showing behind the dialog,
+         and excludeFromRecents to keep the dialog from showing in the list of running apps. -->
+    <activity android:name=".controller.ReceiveFileController"
+              android:theme="@style/Theme.KouChat.Dialog.Translucent"
+              android:taskAffinity=""
+              android:excludeFromRecents="true"/>
+
+    <service android:name=".service.ChatService"/>
+
+    <service android:name=".service.CancelFileTransferService"/>
+
+  </application>
+
+</manifest>
