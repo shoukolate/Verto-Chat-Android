@@ -29,7 +29,4 @@ http://www.kouchat.net/
 https://www.facebook.com/kouchatapp
 
 Source and graphics available under the GNU LGPL v3.
-See COPYING for details.
-
 The smileys in icons/smileys are taken from a GNOME icon theme.
-See the README in that folder for details.
