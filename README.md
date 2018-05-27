@@ -2,7 +2,7 @@
 Verto Chat is an open source, serverless, LAN chat application for Android.
 
 <p align="center">
-  <img src="http://karanvir.ml/assets/images/VertoChat.png">
+  <img src="https://karanvir.ml/assets/images/VertoChat.png">
 </p>
 
 With Verto Chat you can chat and send files to other VertoChat & KouChat users on the same local area network. It’s intended to be used on your network at home, the coffee shop, work place or similar, and does not require any setup, Internet connection or servers to function.
@@ -13,16 +13,14 @@ With Verto Chat you can chat and send files to other VertoChat & KouChat users o
     • Private chat with any user.
     • Choose your own nick name.
     • Set the topic of the group chat.
-    • System tray / notification area support.
+    • Notification area support.
     • See who is currently writing.
     • Send and receive files.
     • Use away mode when you don’t want to be disturbed.
     • Choose the color to use for your own messages and info messages.
-    • Chat logging.
-    • Console mode.
-    • Smileys.
+    • Smileys and emoji are supported.
     • Send messages in any language supported by Unicode.
-    • No configuration needed.
+    • No special configuration needed.
 
 Verto Chat is based on this kouchat-android snapshot: https://github.com/kvsjxd/kouchat-android
 
@@ -30,7 +28,7 @@ Original Kouchat repository: https://github.com/blurpy/kouchat-android
 
 Kouchat copyright 2006-2016 Christian Ihle
 
-http://www.kouchat.net/
+https://www.kouchat.net/
 
 https://www.facebook.com/kouchatapp
 
