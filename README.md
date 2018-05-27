@@ -26,6 +26,9 @@ With Verto Chat you can chat and send files to other VertoChat & KouChat users o
 
 Verto Chat is based on KouChat for android.
 
+Verto Chat is based on this kouchat-android snapshot: https://github.com/kvsjxd/kouchat-android
+Original Kouchat repository: https://github.com/blurpy/kouchat-android
+
 Kouchat copyright 2006-2016 Christian Ihle
 
 http://www.kouchat.net/
@@ -34,3 +37,4 @@ https://www.facebook.com/kouchatapp
 
 Source and graphics available under the GNU LGPL v3.
 The smileys in icons/smileys are taken from a GNOME icon theme.
+New Launcher Icon is designed by VertoChat maintainer.
