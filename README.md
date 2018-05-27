@@ -36,4 +36,4 @@ https://www.facebook.com/kouchatapp
 
 Source and graphics available under the GNU LGPL v3.
 The smileys in icons/smileys are taken from a GNOME icon theme.
-New Launcher Icon is designed by VertoChat maintainer.
+Verto Chat launcher icon is designed by Karanvir Singh.
