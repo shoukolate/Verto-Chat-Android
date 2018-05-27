@@ -1,6 +1,10 @@
 # Verto Chat
 Verto Chat is an open source, serverless, LAN chat application for Android.
 
+<p align="center">
+  <img src="http://karanvir.ml/assets/images/VertoChat.png">
+</p>
+
 With Verto Chat you can chat and send files to other VertoChat & KouChat users on the same local area network. It’s intended to be used on your network at home, the coffee shop, work place or similar, and does not require any setup, Internet connection or servers to function.
 
 ## Features
