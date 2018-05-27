@@ -24,8 +24,6 @@ With Verto Chat you can chat and send files to other VertoChat & KouChat users o
     • Send messages in any language supported by Unicode.
     • No configuration needed.
 
-Verto Chat is based on KouChat for android.
-
 Verto Chat is based on this kouchat-android snapshot: https://github.com/kvsjxd/kouchat-android
 
 Original Kouchat repository: https://github.com/blurpy/kouchat-android
