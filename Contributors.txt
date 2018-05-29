@@ -1,0 +1,10 @@
+Original project by: Christian Ihle (https://github.com/blurpy)
+Forked by: Karanvir Singh
+
+== Verto Chat ==
+
+-- Testers --
+
+* Richa Kumari
+* Prabhsimran Singh Walia
+* Ajit Singh
