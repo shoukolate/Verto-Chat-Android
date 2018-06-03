@@ -52,9 +52,9 @@ import android.os.PowerManager;
  */
 public class LockHandler implements NetworkConnectionListener, SettingsListener {
 
-    public static final String WAKE_LOCK = "KouChat wake lock";
-    public static final String WIFI_LOCK = "KouChat wifi lock";
-    public static final String MULTICAST_LOCK = "KouChat multicast lock";
+    public static final String WAKE_LOCK = "Verto Chat wake lock";
+    public static final String WIFI_LOCK = "Verto Chat wifi lock";
+    public static final String MULTICAST_LOCK = "Verto Chat multicast lock";
 
     private final PowerManager.WakeLock wakeLock;
     private final WifiManager.WifiLock wifiLock;

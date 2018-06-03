@@ -52,7 +52,7 @@ public class AboutDialog {
      */
     public AboutDialog(final Context context) {
         Validate.notNull(context, "Context can not be null");
-        final Context wrappedContext = new ContextThemeWrapper(context, R.style.Theme_KouChat_Dialog);
+        final Context wrappedContext = new ContextThemeWrapper(context, R.style.Theme_VertoChat_Dialog);
 
         final PackageInfo packageInfo = getPackageInfo(wrappedContext);
 

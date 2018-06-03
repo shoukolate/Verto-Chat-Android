@@ -65,6 +65,6 @@ public class ThemedEditTextPreference extends EditTextPreference {
     }
 
     private static ContextThemeWrapper createContextThemeWrapper(final Context originalContext) {
-        return new ContextThemeWrapper(originalContext, R.style.Theme_KouChat_Dialog);
+        return new ContextThemeWrapper(originalContext, R.style.Theme_VertoChat_Dialog);
     }
 }

@@ -7,9 +7,9 @@
     <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
   </style>
 
-  <style name="Theme.KouChat.Dialog" parent="android:Theme.DeviceDefault.Light.Dialog"/>
+  <style name="Theme.VertoChat.Dialog" parent="android:Theme.DeviceDefault.Light.Dialog"/>
 
-  <style name="Theme.KouChat.Dialog.Translucent" parent="ThemeOverlay.AppCompat.Dialog">
+  <style name="Theme.VertoChat.Dialog.Translucent" parent="ThemeOverlay.AppCompat.Dialog">
     <item name="android:windowNoTitle">true</item>
     <item name="android:windowBackground">@android:color/transparent</item>
     <item name="android:colorBackgroundCacheHint">@null</item>

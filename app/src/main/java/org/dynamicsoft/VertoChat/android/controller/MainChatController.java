@@ -56,6 +56,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -118,7 +119,9 @@ public class MainChatController extends AppCompatActivity implements UserListLis
 
         setContentView(R.layout.main_chat);
 
-        if (Build.VERSION.SDK_INT >= 23) {
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON); //Fix for wakelock issue on some devices
+
+        if (Build.VERSION.SDK_INT >= 23) {  //Android API 23 read and write permission
             if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
             } else {
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);

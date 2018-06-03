@@ -117,7 +117,7 @@ public class AndroidSettingsLoader {
     private void loadWakeLock(final Context context, final SharedPreferences preferences,
                               final AndroidSettings settings) {
         final String wakeLockKey = context.getString(R.string.settings_wake_lock_key);
-        final boolean wakeLockEnabled = preferences.getBoolean(wakeLockKey, false);
+        final boolean wakeLockEnabled = preferences.getBoolean(wakeLockKey, true);
 
         settings.setWakeLockEnabled(wakeLockEnabled);
     }

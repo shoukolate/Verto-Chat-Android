@@ -39,7 +39,7 @@ public class AndroidSettings extends Settings {
     private boolean notificationVibrationEnabled;
 
     public AndroidSettings() {
-        wakeLockEnabled = false;
+        wakeLockEnabled = true;
 
         notificationLightEnabled = true;
         notificationSoundEnabled = true;
