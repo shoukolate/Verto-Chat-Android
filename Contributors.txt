@@ -3,6 +3,10 @@ Forked by: Karanvir Singh
 
 == Verto Chat ==
 
+-- Graphics --
+
+Icon by Pawandeep Singh
+
 -- Testers --
 
 * Richa Kumari
