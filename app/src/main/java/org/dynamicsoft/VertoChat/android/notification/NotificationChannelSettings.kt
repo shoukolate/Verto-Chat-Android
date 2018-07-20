@@ -20,7 +20,7 @@
  *   If not, see <http://www.gnu.org/licenses/>.                           *
  ***************************************************************************/
 
-package net.usikkert.kouchat.android.notification
+package org.dynamicsoft.VertoChat.android.notification
 
 import android.app.Notification
 import android.app.NotificationChannel
@@ -29,7 +29,7 @@ import android.content.Context
 import android.os.Build
 import android.support.annotation.RequiresApi
 import android.support.annotation.StringRes
-import net.usikkert.kouchat.android.R
+import org.dynamicsoft.VertoChat.android.R
 import java.util.*
 
 /**

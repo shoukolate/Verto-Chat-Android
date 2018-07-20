@@ -20,11 +20,11 @@
  *   If not, see <http://www.gnu.org/licenses/>.                           *
  ***************************************************************************/
 
-package net.usikkert.kouchat.android.app
+package org.dynamicsoft.VertoChat.android.app
 
 import android.app.Application
 import android.os.Build
-import net.usikkert.kouchat.android.notification.NotificationChannelSettings
+import org.dynamicsoft.VertoChat.android.notification.NotificationChannelSettings
 
 /**
  * The base application class.
