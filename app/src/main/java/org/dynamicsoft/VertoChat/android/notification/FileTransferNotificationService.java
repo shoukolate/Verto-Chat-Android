@@ -27,7 +27,6 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
-
 import org.dynamicsoft.VertoChat.android.notification.NotificationHelper;
 import org.dynamicsoft.VertoChat.android.R;
 import org.dynamicsoft.VertoChat.android.controller.ReceiveFileController;
@@ -36,7 +35,6 @@ import org.dynamicsoft.VertoChat.android.settings.AndroidSettings;
 import org.dynamicsoft.VertoChat.net.FileReceiver;
 import org.dynamicsoft.VertoChat.net.FileTransfer;
 import org.dynamicsoft.VertoChat.util.Validate;
-
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
