@@ -5,7 +5,7 @@
   - Updated Gradle, build tools and dependencies.
 
 
-* version 1.1.0 (14.08.2016)
+* version 1.1.0 (14.08.2018)
   - Changed oldest supported version of Android to 4.1, Jelly Bean.
   - Converted to Gradle for building.
   - Replaced ActionBarSherlock with AppCompat.
@@ -22,7 +22,7 @@
   - Added optional usage of light, sound and vibration on notifications.
   - Imported backend code from VertoChat v1.3.0 for desktop.
   - Changing to switches instead of checkboxes in Settings on Lollipop and newer.
-  - Updated copyright to include 2016.
+  - Updated copyright to include 2018.
 
 
 * version 1.0.2 (26.10.2014)

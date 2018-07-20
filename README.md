@@ -24,7 +24,7 @@ With Verto Chat you can chat and send files to other VertoChat & KouChat users o
 
 Verto Chat is based on this kouchat-android: https://github.com/blurpy/kouchat-android
 
-Kouchat copyright 2006-2016 Christian Ihle
+Kouchat copyright 2006-2018 Christian Ihle
 
 https://www.kouchat.net/
 
