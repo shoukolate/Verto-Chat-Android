@@ -27,22 +27,17 @@ import org.dynamicsoft.VertoChat.android.notification.NotificationService;
 import org.dynamicsoft.VertoChat.android.notification.ServiceNotificationService;
 import org.dynamicsoft.VertoChat.android.settings.AndroidSettings;
 import org.dynamicsoft.VertoChat.android.settings.AndroidSettingsLoader;
-
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.net.wifi.WifiManager;
-import android.os.Build;
 import android.os.IBinder;
 import android.os.PowerManager;
 
 /**
  * Service for accessing the chat operations in lower layers.
- * <p>
- * <p>Starts as a foreground service to avoid being killed randomly.
- * This means a notification is available at all times.</p>
+ * Starts as a foreground service to avoid being killed randomly.
+ * This means a notification is available at all times.
  *
  * @author Christian Ihle
  */
@@ -85,19 +80,7 @@ public class ChatService extends Service {
             started = true;
             androidUserInterface.logOn();
         }
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationManager mNotificationManager =
-                    (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-            NotificationChannel channel = new NotificationChannel("default",
-                    "Message notifications",
-                    NotificationManager.IMPORTANCE_DEFAULT);
-            channel.setDescription("Message Notification");
-            mNotificationManager.createNotificationChannel(channel);
-        } else {
-            startForeground(ServiceNotificationService.SERVICE_NOTIFICATION_ID, notificationService.createServiceNotification());
-        }
-
+        startForeground(ServiceNotificationService.SERVICE_NOTIFICATION_ID, notificationService.createServiceNotification());
         super.onStart(intent, startId);
     }
 
