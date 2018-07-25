@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-  <TextView
-      android:id="@+id/topicDialogMessage"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:textSize="@dimen/text_size"
-      android:text="@string/topic_dialog_message"
-      android:padding="8dp"/>
+    <TextView
+        android:id="@+id/topicDialogMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/topic_dialog_message"
+        android:textSize="@dimen/text_size" />
 
-  <org.dynamicsoft.VertoChat.android.component.ThemedEditText
-      android:id="@+id/topicDialogInput"
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:textSize="@dimen/text_size"
-      android:layout_margin="4dp"
-      android:hint="@string/topic_dialog_enter_topic_hint"/>
+    <EditText
+        android:id="@+id/topicDialogInput"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:hint="@string/topic_dialog_enter_topic_hint"
+        android:textSize="@dimen/text_size" />
 
 </LinearLayout>

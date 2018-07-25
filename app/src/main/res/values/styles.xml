@@ -2,19 +2,20 @@
 
 <resources>
 
-  <style name="Theme.VertoChat.Light" parent="Theme.AppCompat.Light.DarkActionBar">
-    <item name="colorPrimary">@color/colorPrimary</item>
-    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-  </style>
+    <style name="Theme.VertoChat.Light" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
+    </style>
 
-  <style name="Theme.VertoChat.Dialog" parent="android:Theme.DeviceDefault.Light.Dialog"/>
+    <style name="Theme.VertoChat.Dialog" parent="android:Theme.DeviceDefault.Light.Dialog" />
 
-  <style name="Theme.VertoChat.Dialog.Translucent" parent="ThemeOverlay.AppCompat.Dialog">
-    <item name="android:windowNoTitle">true</item>
-    <item name="android:windowBackground">@android:color/transparent</item>
-    <item name="android:colorBackgroundCacheHint">@null</item>
-    <item name="android:windowIsTranslucent">true</item>
-    <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
-  </style>
+    <style name="Theme.VertoChat.Dialog.Translucent" parent="ThemeOverlay.AppCompat.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+    </style>
 
 </resources>

@@ -3,43 +3,47 @@
 <!-- Layout of the send file dialog. -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:paddingBottom="8dp"
-              android:paddingRight="6dp"
-              android:paddingLeft="6dp">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="8dp"
+    android:paddingLeft="6dp"
+    android:paddingRight="6dp">
 
-  <TextView android:id="@+id/sendFileLine1TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/text_size"
-            android:paddingBottom="4dp"
-            android:paddingRight="8dp"
-            android:paddingLeft="8dp"/>
+    <TextView
+        android:id="@+id/sendFileLine1TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="4dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:textSize="@dimen/text_size" />
 
-  <TextView android:id="@+id/sendFileLine2TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/text_size"
-            android:paddingBottom="4dp"
-            android:paddingRight="8dp"
-            android:paddingLeft="8dp"/>
+    <TextView
+        android:id="@+id/sendFileLine2TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="4dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:textSize="@dimen/text_size" />
 
-  <ListView android:id="@+id/sendFileUserListView"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"
-            android:paddingBottom="4dp"
-            android:layout_gravity="center"/>
+    <ListView
+        android:id="@+id/sendFileUserListView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingBottom="4dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp" />
 
-  <Button android:id="@+id/sendFileCancelButton"
-          android:layout_width="150dp"
-          android:layout_height="wrap_content"
-          android:text="@string/cancel"
-          android:padding="8dp"
-          android:textSize="@dimen/text_size"
-          android:layout_gravity="center"/>
+    <Button
+        android:id="@+id/sendFileCancelButton"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="8dp"
+        android:text="@string/cancel"
+        android:textSize="@dimen/text_size" />
 
 </LinearLayout>

@@ -1,38 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:app="http://schemas.android.com/apk/res-auto"
-      android:layout_height="wrap_content"
-      android:layout_width="wrap_content">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
-  <!-- Forcing overflow button on devices with a hardware menu button, for a consistent and discoverable menu -->
-  <item android:id="@+id/mainChatMenu"
-        app:showAsAction="always"
+    <!-- Forcing overflow button on devices with a hardware menu button, for a consistent and discoverable menu -->
+    <item
+        android:id="@+id/mainChatMenu"
+        android:icon="@drawable/abc_ic_menu_overflow_material"
         android:title="@string/menu"
-        android:icon="@drawable/abc_ic_menu_overflow_material">
+        app:showAsAction="always">
 
-    <menu>
-      <item android:id="@+id/mainChatMenuSettings"
-            android:title="@string/settings"
-            app:showAsAction="never|withText"/>
+        <menu>
+            <item
+                android:id="@+id/mainChatMenuSettings"
+                android:title="@string/settings"
+                app:showAsAction="never|withText" />
 
-      <item android:id="@+id/mainChatMenuAway"
-            android:title="@string/away"
-            app:showAsAction="never|withText"/>
+            <item
+                android:id="@+id/mainChatMenuAway"
+                android:title="@string/away"
+                app:showAsAction="never|withText" />
 
-      <item android:id="@+id/mainChatMenuTopic"
-            android:title="@string/topic"
-            app:showAsAction="never|withText"/>
+            <item
+                android:id="@+id/mainChatMenuTopic"
+                android:title="@string/topic"
+                app:showAsAction="never|withText" />
 
-      <item android:id="@+id/mainChatMenuAbout"
-            android:title="@string/about"
-            app:showAsAction="never|withText"/>
+            <item
+                android:id="@+id/mainChatMenuAbout"
+                android:title="@string/about"
+                app:showAsAction="never|withText" />
 
-      <item android:id="@+id/mainChatMenuQuit"
-            android:title="@string/quit"
-            app:showAsAction="never|withText"/>
-    </menu>
+            <item
+                android:id="@+id/mainChatMenuQuit"
+                android:title="@string/quit"
+                app:showAsAction="never|withText" />
+        </menu>
 
-  </item>
+    </item>
 
 </menu>

@@ -1,60 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-                  android:title="@string/settings_title">
+    android:title="@string/settings_title">
 
-  <org.dynamicsoft.VertoChat.android.component.ThemedEditTextPreference
-      android:key="@string/settings_nick_name_key"
-      android:title="@string/settings_nick_name_title"
-      android:summary="@string/settings_nick_name_summary"
-      android:maxLength="10"
-      android:dialogTitle="@string/settings_nick_name_title"
-      android:dialogMessage="@string/settings_nick_name_dialog_message"
-      android:dialogIcon="@drawable/ic_dialog"/>
+    <org.dynamicsoft.vertochat.android.component.NickNameEditTextPreference
+        android:dialogIcon="@drawable/ic_dialog"
+        android:dialogMessage="@string/settings_nick_name_dialog_message"
+        android:dialogTitle="@string/settings_nick_name_title"
+        android:key="@string/settings_nick_name_key"
+        android:summary="@string/settings_nick_name_summary"
+        android:title="@string/settings_nick_name_title" />
 
-  <org.dynamicsoft.VertoChat.android.component.HoloColorPickerPreference
-      android:key="@string/settings_own_color_key"
-      android:title="@string/settings_own_color_title"
-      android:summary="@string/settings_own_color_summary"
-      android:defaultValue="-15987646"
-      android:dialogTitle="@string/settings_own_color_title"
-      android:dialogIcon="@drawable/ic_dialog"/>
+    <org.dynamicsoft.vertochat.android.component.HoloColorPickerPreference
+        android:defaultValue="-15987646"
+        android:dialogIcon="@drawable/ic_dialog"
+        android:dialogTitle="@string/settings_own_color_title"
+        android:key="@string/settings_own_color_key"
+        android:summary="@string/settings_own_color_summary"
+        android:title="@string/settings_own_color_title" />
 
-  <org.dynamicsoft.VertoChat.android.component.HoloColorPickerPreference
-      android:key="@string/settings_sys_color_key"
-      android:title="@string/settings_sys_color_title"
-      android:summary="@string/settings_sys_color_summary"
-      android:defaultValue="-16759040"
-      android:dialogTitle="@string/settings_sys_color_title"
-      android:dialogIcon="@drawable/ic_dialog"/>
-
-  <CheckBoxPreference
-      android:widgetLayout="@layout/two_state_preference"
-      android:key="@string/settings_wake_lock_key"
-      android:title="@string/settings_wake_lock_title"
-      android:summary="@string/settings_wake_lock_summary"/>
-
-  <PreferenceCategory
-      android:title="@string/settings_notification_title">
+    <org.dynamicsoft.vertochat.android.component.HoloColorPickerPreference
+        android:defaultValue="-16759040"
+        android:dialogIcon="@drawable/ic_dialog"
+        android:dialogTitle="@string/settings_sys_color_title"
+        android:key="@string/settings_sys_color_key"
+        android:summary="@string/settings_sys_color_summary"
+        android:title="@string/settings_sys_color_title" />
 
     <CheckBoxPreference
-        android:widgetLayout="@layout/two_state_preference"
-        android:key="@string/settings_notification_light_key"
-        android:title="@string/settings_notification_light_title"
-        android:defaultValue="true"/>
+        android:key="@string/settings_wake_lock_key"
+        android:summary="@string/settings_wake_lock_summary"
+        android:title="@string/settings_wake_lock_title"
+        android:widgetLayout="@layout/two_state_preference" />
 
-    <CheckBoxPreference
-        android:widgetLayout="@layout/two_state_preference"
-        android:key="@string/settings_notification_sound_key"
-        android:title="@string/settings_notification_sound_title"
-        android:defaultValue="true"/>
+    <PreferenceCategory android:title="@string/settings_notification_title">
 
-    <CheckBoxPreference
-        android:widgetLayout="@layout/two_state_preference"
-        android:key="@string/settings_notification_vibration_key"
-        android:title="@string/settings_notification_vibration_title"
-        android:defaultValue="true"/>
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="@string/settings_notification_light_key"
+            android:title="@string/settings_notification_light_title"
+            android:widgetLayout="@layout/two_state_preference" />
 
-  </PreferenceCategory>
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="@string/settings_notification_sound_key"
+            android:title="@string/settings_notification_sound_title"
+            android:widgetLayout="@layout/two_state_preference" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="@string/settings_notification_vibration_key"
+            android:title="@string/settings_notification_vibration_title"
+            android:widgetLayout="@layout/two_state_preference" />
+
+    </PreferenceCategory>
 
 </PreferenceScreen>

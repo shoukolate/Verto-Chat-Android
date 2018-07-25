@@ -1,13 +1,18 @@
+
 - VertoChat Android CHANGES
 
 
-* version 1.2.0 (TODO)
+* version 1.1.1 (TODO)
   - Updated Gradle, build tools and dependencies.
   - Added Kotlin support.
   - Added notification channels for Android Oreo and newer.
+  - Added button in settings to open system-provided notification settings on Android Oreo and newer.
+  - Added adaptive launcher icon for Android Oreo and newer.
+  - Migrated all styling to support library to get a consistent look and feel across versions of Android.
+  - Fixed bug where file transfer notifications would get stuck in progress while actually completed.
 
 
-* version 1.1.0 (14.08.2018)
+* version 1.1.0 (14.08.2016)
   - Changed oldest supported version of Android to 4.1, Jelly Bean.
   - Converted to Gradle for building.
   - Replaced ActionBarSherlock with AppCompat.
@@ -24,7 +29,7 @@
   - Added optional usage of light, sound and vibration on notifications.
   - Imported backend code from VertoChat v1.3.0 for desktop.
   - Changing to switches instead of checkboxes in Settings on Lollipop and newer.
-  - Updated copyright to include 2018.
+  - Updated copyright to include 2016.
 
 
 * version 1.0.2 (26.10.2014)
@@ -76,7 +81,7 @@
   - Fixed several issues leading to memory leaks.
   - Added basic support for receiving files.
   - Upgraded ActionBarSherlock to version 4.4.0.
-  - Changed contact information to use the new VertoChat.net domain.
+  - Changed contact information to use the new vertochat.net domain.
 
 
 * version 0.10.0 (28.07.2013)
