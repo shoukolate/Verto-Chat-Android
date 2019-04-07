@@ -46,7 +46,7 @@ public interface Constants {
     /**
      * The home page of this application.
      */
-    String APP_WEB = "http://kvsjxd.github.io/VertoChat-Android/";
+    String APP_WEB = "http://shouko-komi.github.io/VertoChat-Android/";
 
     /**
      * Copyright from year, to year.
