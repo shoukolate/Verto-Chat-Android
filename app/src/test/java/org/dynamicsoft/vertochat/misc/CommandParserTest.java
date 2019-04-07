@@ -684,7 +684,7 @@ public class CommandParserTest {
 
         verify(messageController).showSystemMessage(
                 "This is VertoChat v" + Constants.APP_VERSION +
-                        ", by Christian Ihle - contact@vertochat.net - https://github.com/kvsjxd/VertoChat-Android");
+                        ", by Christian Ihle - contact@vertochat.net - https://github.com/shouko-komi/VertoChat-Android");
     }
 
     /*
