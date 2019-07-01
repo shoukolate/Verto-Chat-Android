@@ -22,8 +22,9 @@
 package org.dynamicsoft.vertochat.android.component;
 
 import android.os.Bundle;
-import android.support.v7.preference.PreferenceDialogFragmentCompat;
 import android.view.View;
+
+import androidx.preference.PreferenceDialogFragmentCompat;
 
 import com.larswerkman.holocolorpicker.ColorPicker;
 import com.larswerkman.holocolorpicker.SaturationBar;
@@ -48,7 +49,7 @@ public class HoloColorPickerPreferenceDialog extends PreferenceDialogFragmentCom
      * A factory method to create an instance of this dialog.
      * <p>
      * <p>Seems to be the recommended pattern, as seen in
-     * {@link android.support.v7.preference.EditTextPreferenceDialogFragmentCompat}</p>
+     * {@link androidx.preference.EditTextPreferenceDialogFragmentCompat}</p>
      *
      * @param key The preference key, like own_color and sys_color.
      * @return An instance of this.

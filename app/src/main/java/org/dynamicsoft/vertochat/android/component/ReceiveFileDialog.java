@@ -24,9 +24,10 @@ package org.dynamicsoft.vertochat.android.component;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.res.Resources;
-import android.support.v7.app.AlertDialog;
 import android.util.TypedValue;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AlertDialog;
 
 import org.dynamicsoft.vertochat.android.R;
 import org.dynamicsoft.vertochat.net.FileReceiver;

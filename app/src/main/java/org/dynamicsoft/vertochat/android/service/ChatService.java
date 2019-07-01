@@ -30,7 +30,6 @@ import android.os.PowerManager;
 
 import org.dynamicsoft.vertochat.android.chatwindow.AndroidUserInterface;
 import org.dynamicsoft.vertochat.android.notification.NotificationService;
-import org.dynamicsoft.vertochat.android.notification.ServiceNotificationService;
 import org.dynamicsoft.vertochat.android.settings.AndroidSettings;
 import org.dynamicsoft.vertochat.android.settings.AndroidSettingsLoader;
 
@@ -82,7 +81,7 @@ public class ChatService extends Service {
             androidUserInterface.logOn();
         }
 
-        startForeground(ServiceNotificationService.SERVICE_NOTIFICATION_ID, notificationService.createServiceNotification());
+        //startForeground(ServiceNotificationService.SERVICE_NOTIFICATION_ID, notificationService.createServiceNotification());
 
         return START_STICKY;
     }

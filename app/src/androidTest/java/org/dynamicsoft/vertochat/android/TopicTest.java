@@ -22,10 +22,11 @@
 package org.dynamicsoft.vertochat.android;
 
 import android.app.Instrumentation;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.test.ActivityInstrumentationTestCase2;
 import android.view.KeyEvent;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.robotium.solo.Solo;
 

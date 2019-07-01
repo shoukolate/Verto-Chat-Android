@@ -29,11 +29,12 @@ import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import org.dynamicsoft.vertochat.android.R;
 import org.dynamicsoft.vertochat.android.chatwindow.AndroidUserInterface;
@@ -73,8 +74,8 @@ public class ReceiveFileController extends AppCompatActivity {
         // Override exit animation to avoid black screen when closing the dialog on
         // some versions of Android, like KitKat.
         // This was the only place the method had any effect.
-        overridePendingTransition(android.support.v7.appcompat.R.anim.abc_popup_enter,
-                android.support.v7.appcompat.R.anim.abc_popup_exit);
+        overridePendingTransition(androidx.appcompat.R.anim.abc_popup_enter,
+                androidx.appcompat.R.anim.abc_popup_exit);
     }
 
     @Override

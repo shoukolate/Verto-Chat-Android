@@ -27,9 +27,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Build;
-import android.support.v4.app.NotificationCompat;
 import android.text.SpannableString;
 import android.text.style.StyleSpan;
+
+import androidx.core.app.NotificationCompat;
 
 import org.apache.commons.collections4.queue.CircularFifoQueue;
 import org.dynamicsoft.vertochat.android.R;

@@ -23,11 +23,12 @@ package org.dynamicsoft.vertochat.android.component;
 
 import android.content.Context;
 import android.content.DialogInterface;
-import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
+
+import androidx.appcompat.app.AlertDialog;
 
 import org.dynamicsoft.vertochat.android.R;
 import org.dynamicsoft.vertochat.android.chatwindow.AndroidUserInterface;

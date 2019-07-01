@@ -27,11 +27,6 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Point;
 import android.graphics.Rect;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.AppCompatTextView;
-import android.test.ActivityInstrumentationTestCase2;
-import android.test.InstrumentationTestCase;
 import android.text.Layout;
 import android.text.TextPaint;
 import android.util.DisplayMetrics;
@@ -40,6 +35,10 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatTextView;
 
 import com.robotium.solo.Solo;
 
@@ -55,8 +54,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
-
-import static junit.framework.Assert.assertEquals;
 
 /**
  * Utilities for tests.

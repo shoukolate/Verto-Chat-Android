@@ -22,9 +22,10 @@
 package org.dynamicsoft.vertochat.android.component;
 
 import android.content.Context;
-import android.support.v7.widget.AppCompatEditText;
 import android.util.AttributeSet;
 import android.widget.EditText;
+
+import androidx.appcompat.widget.AppCompatEditText;
 
 /**
  * An {@link EditText} that blocks 'enter'. This is an improvement to just setting
@@ -43,7 +44,7 @@ public class EditTextWithNoNewLines extends AppCompatEditText {
     }
 
     public EditTextWithNoNewLines(final Context context, final AttributeSet attrs) {
-        this(context, attrs, android.support.v7.appcompat.R.attr.editTextStyle);
+        this(context, attrs, androidx.appcompat.R.attr.editTextStyle);
     }
 
     public EditTextWithNoNewLines(final Context context) {

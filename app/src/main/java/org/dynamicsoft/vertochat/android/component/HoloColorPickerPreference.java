@@ -25,10 +25,11 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
-import android.support.v7.preference.DialogPreference;
-import android.support.v7.preference.PreferenceViewHolder;
 import android.util.AttributeSet;
 import android.widget.ImageView;
+
+import androidx.preference.DialogPreference;
+import androidx.preference.PreferenceViewHolder;
 
 import org.dynamicsoft.vertochat.android.R;
 

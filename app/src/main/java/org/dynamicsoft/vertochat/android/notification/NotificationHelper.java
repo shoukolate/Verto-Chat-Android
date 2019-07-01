@@ -25,8 +25,9 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.graphics.Color;
 import android.net.Uri;
-import android.support.annotation.StringRes;
-import android.support.v4.app.NotificationCompat;
+
+import androidx.annotation.StringRes;
+import androidx.core.app.NotificationCompat;
 
 import org.dynamicsoft.vertochat.android.R;
 import org.dynamicsoft.vertochat.android.settings.AndroidSettings;
