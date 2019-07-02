@@ -33,6 +33,8 @@ import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import static org.dynamicsoft.vertochat.settings.PropertyFileSettings.SYSTEM_TRAY;
+
 /**
  * Loads settings stored in <code>~/.vertochat/vertochat.ini</code>.
  *
@@ -67,6 +69,7 @@ public class PropertyFileSettingsLoader {
             setSysColor(settings, fileContents);
             setLogging(settings, fileContents);
             setBalloons(settings, fileContents);
+            setSystemTray(settings, fileContents);
             setBrowser(settings, fileContents);
             setLookAndFeel(settings, fileContents);
             setNetworkInterface(settings, fileContents);
@@ -111,6 +114,14 @@ public class PropertyFileSettingsLoader {
     private void setBalloons(final Settings settings, final Properties fileContents) {
         settings.setBalloons(Boolean.valueOf(fileContents.getProperty(PropertyFileSettings.BALLOONS.getKey())));
     }
+
+    private void setSystemTray(final Settings settings, final Properties fileContents) {
+        // Defaults to true
+        if (fileContents.getProperty(SYSTEM_TRAY.getKey()) != null) {
+            settings.setSystemTray(Boolean.valueOf(fileContents.getProperty(SYSTEM_TRAY.getKey())));
+        }
+    }
+
 
     private void setBrowser(final Settings settings, final Properties fileContents) {
         settings.setBrowser(Tools.emptyIfNull(fileContents.getProperty(PropertyFileSettings.BROWSER.getKey())));

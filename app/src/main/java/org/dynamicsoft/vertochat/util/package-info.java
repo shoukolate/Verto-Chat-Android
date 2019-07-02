@@ -22,6 +22,10 @@
  * and classes that are used a bit outside the application scope.
  *
  * @author Christian Ihle
+ * <p>
+ * This package has static classes, classes with reusable functionality,
+ * and classes that are used a bit outside the application scope.
+ * @author Christian Ihle
  */
 
 /**

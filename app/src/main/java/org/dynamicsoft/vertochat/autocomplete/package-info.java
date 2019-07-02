@@ -21,6 +21,9 @@
  * This package contains classes for autocomplete functionality.
  *
  * @author Christian Ihle
+ * <p>
+ * This package contains classes for autocomplete functionality.
+ * @author Christian Ihle
  */
 
 /**

@@ -37,6 +37,7 @@ import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import static org.dynamicsoft.vertochat.settings.PropertyFileSettings.SYSTEM_TRAY;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -100,11 +101,12 @@ public class PropertyFileSettingsLoaderTest {
         properties.setProperty(PropertyFileSettings.LOGGING.getKey(), "true");
         properties.setProperty(PropertyFileSettings.SMILEYS.getKey(), "false");
         properties.setProperty(PropertyFileSettings.BALLOONS.getKey(), "true");
+        properties.setProperty(SYSTEM_TRAY.getKey(), "false");
         properties.setProperty(PropertyFileSettings.BROWSER.getKey(), "opera");
         properties.setProperty(PropertyFileSettings.LOOK_AND_FEEL.getKey(), "sega");
         properties.setProperty(PropertyFileSettings.NETWORK_INTERFACE.getKey(), "eth5");
 
-        assertEquals(10, properties.size());
+        assertEquals(11, properties.size());
 
         when(propertyTools.loadProperties(anyString())).thenReturn(properties);
 
@@ -119,6 +121,7 @@ public class PropertyFileSettingsLoaderTest {
         assertTrue(settings.isLogging());
         assertFalse(settings.isSmileys());
         assertTrue(settings.isBalloons());
+        assertFalse(settings.isSystemTray());
 
         assertEquals("opera", settings.getBrowser());
         assertEquals("sega", settings.getLookAndFeel());
@@ -133,6 +136,7 @@ public class PropertyFileSettingsLoaderTest {
         properties.setProperty(PropertyFileSettings.LOGGING.getKey(), "nah");
         properties.setProperty(PropertyFileSettings.SMILEYS.getKey(), "nope");
         properties.setProperty(PropertyFileSettings.BALLOONS.getKey(), "yey");
+        properties.setProperty(SYSTEM_TRAY.getKey(), "wow");
 
         when(propertyTools.loadProperties(anyString())).thenReturn(properties);
 
@@ -142,6 +146,7 @@ public class PropertyFileSettingsLoaderTest {
         assertFalse(settings.isLogging());
         assertFalse(settings.isSmileys());
         assertFalse(settings.isBalloons());
+        assertFalse(settings.isSystemTray());
     }
 
     @Test

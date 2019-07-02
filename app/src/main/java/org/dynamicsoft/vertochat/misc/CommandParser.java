@@ -34,6 +34,7 @@ import org.dynamicsoft.vertochat.util.DateTools;
 import org.dynamicsoft.vertochat.util.Tools;
 import org.dynamicsoft.vertochat.util.Validate;
 import org.jetbrains.annotations.NonNls;
+import org.jetbrains.annotations.Nullable;
 
 import java.io.File;
 import java.util.Date;
@@ -220,6 +221,11 @@ public class CommandParser {
                 }
 
                 info += "\n" + coreMessages.getMessage("core.command.whois.client", user.getClient());
+
+                if (user.isTcpEnabled()) {
+                    info += " " + coreMessages.getMessage("core.command.whois.tcp");
+                }
+
                 info += "\n" + coreMessages.getMessage("core.command.whois.operatingSystem", user.getOperatingSystem());
                 info += "\n" + coreMessages.getMessage("core.command.whois.online",
                         dateTools.howLongFromNow(user.getLogonTime()));
@@ -458,6 +464,7 @@ public class CommandParser {
         cancelFileTransfer(fileTransfer);
     }
 
+    @Nullable
     private Integer parseFileTransferId(final String argument) {
         try {
             return Integer.parseInt(argument);
@@ -777,7 +784,7 @@ public class CommandParser {
         if (line.contains(" ")) {
             command = line.substring(1, line.indexOf(' '));
         } else {
-            command = line.substring(1, line.length());
+            command = line.substring(1);
         }
 
         if (command.length() > 0) {

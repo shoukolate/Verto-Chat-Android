@@ -22,7 +22,10 @@
 package org.dynamicsoft.vertochat.net;
 
 import org.dynamicsoft.vertochat.junit.ExpectedException;
+import org.dynamicsoft.vertochat.misc.Controller;
 import org.dynamicsoft.vertochat.misc.ErrorHandler;
+import org.dynamicsoft.vertochat.misc.User;
+import org.dynamicsoft.vertochat.misc.UserList;
 import org.dynamicsoft.vertochat.settings.Settings;
 import org.dynamicsoft.vertochat.util.TestUtils;
 import org.junit.Before;
@@ -48,11 +51,24 @@ public class NetworkServiceTest {
 
     private Settings settings;
     private ErrorHandler errorHandler;
+    private Controller controller;
 
     @Before
     public void setUp() {
         settings = mock(Settings.class);
         errorHandler = mock(ErrorHandler.class);
+        controller = mock(Controller.class);
+
+        when(settings.getMe()).thenReturn(mock(User.class));
+        when(controller.getUserList()).thenReturn(mock(UserList.class));
+    }
+
+    @Test
+    public void constructorShouldThrowExceptionIfControllerIsNull() {
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Controller can not be null");
+
+        new NetworkService(null, settings, errorHandler);
     }
 
     @Test
@@ -60,7 +76,7 @@ public class NetworkServiceTest {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Settings can not be null");
 
-        new NetworkService(null, errorHandler);
+        new NetworkService(controller, null, errorHandler);
     }
 
     @Test
@@ -68,14 +84,14 @@ public class NetworkServiceTest {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Error handler can not be null");
 
-        new NetworkService(settings, null);
+        new NetworkService(controller, settings, null);
     }
 
     @Test
     public void networkServiceShouldLoadPrivateChatObjectsWhenEnabled() {
         when(settings.isNoPrivateChat()).thenReturn(false);
 
-        final NetworkService networkService = new NetworkService(settings, errorHandler);
+        final NetworkService networkService = new NetworkService(controller, settings, errorHandler);
 
         assertNotNull(TestUtils.getFieldValue(networkService, UDPReceiver.class, "udpReceiver"));
         assertNotNull(TestUtils.getFieldValue(networkService, UDPSender.class, "udpSender"));
@@ -85,24 +101,24 @@ public class NetworkServiceTest {
     public void networkServiceShouldNotLoadPrivateChatObjectsWhenDisabled() {
         when(settings.isNoPrivateChat()).thenReturn(true);
 
-        final NetworkService networkService = new NetworkService(settings, errorHandler);
+        final NetworkService networkService = new NetworkService(controller, settings, errorHandler);
 
         assertNull(TestUtils.getFieldValue(networkService, UDPReceiver.class, "udpReceiver"));
         assertNull(TestUtils.getFieldValue(networkService, UDPSender.class, "udpSender"));
     }
 
     @Test
-    public void registerUDPReceiverListenerShouldNotFailWhenPrivateChatDisabled() {
+    public void registerPrivateChatReceiverListenerShouldNotFailWhenPrivateChatDisabled() {
         when(settings.isNoPrivateChat()).thenReturn(true);
 
-        final NetworkService networkService = new NetworkService(settings, errorHandler);
+        final NetworkService networkService = new NetworkService(controller, settings, errorHandler);
 
-        networkService.registerUDPReceiverListener(null);
+        networkService.registerPrivateChatReceiverListener(null);
     }
 
     @Test
     public void beforeNetworkCameUpShouldDoNothing() {
-        final NetworkService networkService = new NetworkService(settings, errorHandler);
+        final NetworkService networkService = new NetworkService(controller, settings, errorHandler);
 
         networkService.beforeNetworkCameUp();
     }
@@ -111,7 +127,7 @@ public class NetworkServiceTest {
     public void networkCameUpShouldNotFailWhenPrivateChatDisabled() {
         when(settings.isNoPrivateChat()).thenReturn(true);
 
-        final NetworkService networkService = new NetworkService(settings, errorHandler);
+        final NetworkService networkService = new NetworkService(controller, settings, errorHandler);
 
         networkService.networkCameUp(false);
     }
@@ -120,18 +136,19 @@ public class NetworkServiceTest {
     public void networkWentDownShouldNotFailWhenPrivateChatDisabled() {
         when(settings.isNoPrivateChat()).thenReturn(true);
 
-        final NetworkService networkService = new NetworkService(settings, errorHandler);
+        final NetworkService networkService = new NetworkService(controller, settings, errorHandler);
 
         networkService.networkWentDown(false);
     }
 
     @Test
-    public void sendUDPMsgShouldNotSendMessageWhenPrivateChatDisabled() {
+    public void sendMessageToUserShouldNotSendMessageWhenPrivateChatDisabled() {
         when(settings.isNoPrivateChat()).thenReturn(true);
+        final User user = new User("User", 111);
 
-        final NetworkService networkService = new NetworkService(settings, errorHandler);
+        final NetworkService networkService = new NetworkService(controller, settings, errorHandler);
 
-        final boolean messageSent = networkService.sendUDPMsg("Nothing", "192.168.1.1", 1234);
+        final boolean messageSent = networkService.sendMessageToUser("Nothing", user);
         assertFalse(messageSent);
     }
 }

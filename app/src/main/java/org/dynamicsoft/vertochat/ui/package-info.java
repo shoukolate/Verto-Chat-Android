@@ -22,6 +22,10 @@
  * that are not specific to any user interface implementation.
  *
  * @author Christian Ihle
+ * <p>
+ * The parent package for user interface functionality. Contains classes
+ * that are not specific to any user interface implementation.
+ * @author Christian Ihle
  */
 
 /**

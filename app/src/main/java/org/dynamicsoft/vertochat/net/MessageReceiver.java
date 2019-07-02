@@ -25,6 +25,7 @@ import org.dynamicsoft.vertochat.Constants;
 import org.dynamicsoft.vertochat.event.ReceiverListener;
 import org.dynamicsoft.vertochat.misc.ErrorHandler;
 import org.dynamicsoft.vertochat.util.Validate;
+import org.jetbrains.annotations.Nullable;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
@@ -33,6 +34,8 @@ import java.net.MulticastSocket;
 import java.net.NetworkInterface;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import static org.dynamicsoft.vertochat.net.NetworkUtils.IPTOS_RELIABILITY;
 
 /**
  * This is the thread that listens for multicast messages from
@@ -53,6 +56,7 @@ public class MessageReceiver implements Runnable {
     /**
      * The multicast socket used for receiving messages.
      */
+    @Nullable
     private MulticastSocket mcSocket;
     /**
      * The inetaddress object with the multicast ip address to receive messages from.
@@ -164,7 +168,7 @@ public class MessageReceiver implements Runnable {
      * @param networkInterface The network interface to use, or <code>null</code>.
      * @return If connected to the network or not.
      */
-    public synchronized boolean startReceiver(final NetworkInterface networkInterface) {
+    public synchronized boolean startReceiver(@Nullable final NetworkInterface networkInterface) {
         LOG.log(Level.FINE, "Connecting to " + address.getHostAddress() + ":" + port + " on " + networkInterface);
 
         try {
@@ -179,7 +183,7 @@ public class MessageReceiver implements Runnable {
                     mcSocket.setNetworkInterface(networkInterface);
                 }
 
-                mcSocket.joinGroup(address);
+                mcSocket.setTrafficClass(IPTOS_RELIABILITY);
                 LOG.log(Level.FINE, "Connected to " + mcSocket.getNetworkInterface());
                 connected = true;
             }

@@ -21,6 +21,9 @@
  * This package has classes for setting up the JMX support in KouChat.
  *
  * @author Christian Ihle
+ * <p>
+ * This package has classes for setting up the JMX support in KouChat.
+ * @author Christian Ihle
  */
 
 /**

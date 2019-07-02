@@ -21,6 +21,9 @@
  * This is the parent package, with the main class and constants.
  *
  * @author Christian Ihle
+ * <p>
+ * This is the parent package, with the main class and constants.
+ * @author Christian Ihle
  */
 
 /**

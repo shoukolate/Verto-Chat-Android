@@ -21,6 +21,9 @@
  * This package contains Android services.
  *
  * @author Christian Ihle
+ * <p>
+ * This package contains Android services.
+ * @author Christian Ihle
  */
 
 /**

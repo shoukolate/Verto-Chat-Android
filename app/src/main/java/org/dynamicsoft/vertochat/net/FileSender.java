@@ -24,6 +24,7 @@ package org.dynamicsoft.vertochat.net;
 import org.dynamicsoft.vertochat.event.FileTransferListener;
 import org.dynamicsoft.vertochat.misc.User;
 import org.dynamicsoft.vertochat.util.ByteCounter;
+import org.jetbrains.annotations.Nullable;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -102,16 +103,19 @@ public class FileSender implements FileTransfer {
     /**
      * The input stream from the file.
      */
+    @Nullable
     private InputStream is;
 
     /**
      * The output stream to the other user.
      */
+    @Nullable
     private OutputStream os;
 
     /**
      * The socket connection to the other user.
      */
+    @Nullable
     private Socket sock;
 
     /**

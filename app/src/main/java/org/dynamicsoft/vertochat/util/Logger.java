@@ -22,6 +22,7 @@
 package org.dynamicsoft.vertochat.util;
 
 import org.jetbrains.annotations.NonNls;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
@@ -44,6 +45,21 @@ public final class Logger {
 
     public static Logger getLogger(final Class<?> clazz) {
         return new Logger(java.util.logging.Logger.getLogger(clazz.getName()));
+    }
+
+    public void fine(@NonNls final String message,
+                     @NonNls final Object... messageParameters) {
+        log(Level.FINE, message, messageParameters, null);
+    }
+
+    public void info(@NonNls final String message,
+                     @NonNls final Object... messageParameters) {
+        log(Level.INFO, message, messageParameters, null);
+    }
+
+    public void warning(@NonNls final String message,
+                        @NonNls final Object... messageParameters) {
+        log(Level.WARNING, message, messageParameters, null);
     }
 
     public void severe(@NonNls final String message,
@@ -81,6 +97,7 @@ public final class Logger {
         }
     }
 
+    @Nullable
     private String getFormattedMessageOrNull(final String message, final Object[] messageParameters) {
         if (message == null) {
             return null;

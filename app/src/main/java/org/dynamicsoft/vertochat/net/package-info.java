@@ -21,6 +21,9 @@
  * This package has classes that handles everything network related.
  *
  * @author Christian Ihle
+ * <p>
+ * This package has classes that handles everything network related.
+ * @author Christian Ihle
  */
 
 /**

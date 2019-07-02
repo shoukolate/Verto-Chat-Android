@@ -21,6 +21,8 @@
 
 package org.dynamicsoft.vertochat.util;
 
+import org.jetbrains.annotations.Nullable;
+
 import java.io.Closeable;
 import java.io.File;
 import java.io.Flushable;
@@ -42,7 +44,7 @@ public class IOTools {
      *
      * @param flushable The object to flush. Handles <code>null</code>.
      */
-    public void flush(final Flushable flushable) {
+    public void flush(@Nullable final Flushable flushable) {
         if (flushable == null) {
             return;
         }
@@ -60,7 +62,7 @@ public class IOTools {
      *
      * @param closeable The object to close. Handles <code>null</code>.
      */
-    public void close(final Closeable closeable) {
+    public void close(@Nullable final Closeable closeable) {
         if (closeable == null) {
             return;
         }

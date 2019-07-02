@@ -21,6 +21,9 @@
  * This package contains Android components.
  *
  * @author Christian Ihle
+ * <p>
+ * This package contains Android components.
+ * @author Christian Ihle
  */
 
 /**

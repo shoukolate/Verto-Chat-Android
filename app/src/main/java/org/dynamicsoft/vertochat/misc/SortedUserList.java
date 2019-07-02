@@ -23,6 +23,7 @@ package org.dynamicsoft.vertochat.misc;
 
 import org.dynamicsoft.vertochat.event.UserListListener;
 import org.dynamicsoft.vertochat.util.Validate;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -78,6 +79,7 @@ public class SortedUserList implements UserList {
     /**
      * {@inheritDoc}
      */
+    @Nullable
     @Override
     public User get(final int pos) {
         if (pos < userList.size()) {

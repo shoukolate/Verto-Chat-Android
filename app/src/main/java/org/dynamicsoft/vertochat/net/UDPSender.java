@@ -32,6 +32,8 @@ import java.net.InetAddress;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import static org.dynamicsoft.vertochat.net.NetworkUtils.IPTOS_RELIABILITY;
+
 /**
  * Sends UDP packets directly to a user. Useful for private chat,
  * where not everyone should get the packets.
@@ -112,6 +114,7 @@ public class UDPSender {
         } else {
             try {
                 udpSocket = new DatagramSocket();
+                udpSocket.setTrafficClass(IPTOS_RELIABILITY);
                 connected = true;
                 LOG.log(Level.FINE, "Connected.");
             } catch (final IOException e) {

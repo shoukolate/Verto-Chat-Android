@@ -27,6 +27,7 @@ import org.dynamicsoft.vertochat.misc.User;
 import org.dynamicsoft.vertochat.settings.Settings;
 import org.dynamicsoft.vertochat.util.Tools;
 import org.dynamicsoft.vertochat.util.Validate;
+import org.jetbrains.annotations.Nullable;
 
 import java.net.InetAddress;
 import java.net.NetworkInterface;
@@ -147,6 +148,7 @@ public class OperatingSystemNetworkInfo {
      * @param listener The message listener.
      * @return The found network interface, or <code>null</code>.
      */
+    @Nullable
     private NetworkInterface findNetworkInterface(final SimpleReceiverListener listener) {
         if (listener.getIpAddress() == null) {
             return null;

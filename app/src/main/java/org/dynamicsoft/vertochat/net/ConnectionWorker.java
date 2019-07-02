@@ -25,6 +25,7 @@ import org.dynamicsoft.vertochat.event.NetworkConnectionListener;
 import org.dynamicsoft.vertochat.misc.ErrorHandler;
 import org.dynamicsoft.vertochat.settings.Settings;
 import org.dynamicsoft.vertochat.util.Validate;
+import org.jetbrains.annotations.Nullable;
 
 import java.net.NetworkInterface;
 import java.util.ArrayList;
@@ -82,10 +83,12 @@ public class ConnectionWorker implements Runnable {
     /**
      * The current network interface.
      */
+    @Nullable
     private NetworkInterface networkInterface;
     /**
      * The working thread.
      */
+    @Nullable
     private Thread worker;
 
     /**
@@ -289,6 +292,7 @@ public class ConnectionWorker implements Runnable {
      * @return The network interface found, or <code>null</code>.
      * @see NetworkUtils#isUsable(NetworkInterface)
      */
+    @Nullable
     private NetworkInterface selectNetworkInterface() {
         final NetworkInterface firstUsableNetIf = networkUtils.findFirstUsableNetworkInterface();
 

@@ -30,6 +30,7 @@ import org.dynamicsoft.vertochat.misc.SortedUserList;
 import org.dynamicsoft.vertochat.misc.Topic;
 import org.dynamicsoft.vertochat.misc.User;
 import org.dynamicsoft.vertochat.misc.UserList;
+import org.dynamicsoft.vertochat.misc.WaitingList;
 import org.dynamicsoft.vertochat.settings.Settings;
 import org.dynamicsoft.vertochat.ui.UserInterface;
 import org.joda.time.DateTime;
@@ -68,6 +69,7 @@ public class DefaultMessageResponderTest {
     private UserList userList;
     private ChatState chatState;
     private CoreMessages coreMessages;
+    private WaitingList waitingList;
 
     private User user;
     private User me;
@@ -81,10 +83,13 @@ public class DefaultMessageResponderTest {
         userList = new SortedUserList();
         chatState = mock(ChatState.class);
         coreMessages = new CoreMessages();
+        waitingList = mock(WaitingList.class);
 
         when(userInterface.getMessageController()).thenReturn(messageController);
         when(controller.getUserList()).thenReturn(userList);
         when(controller.getChatState()).thenReturn(chatState);
+        when(controller.getWaitingList()).thenReturn(waitingList);
+
 
         responder = new DefaultMessageResponder(controller, userInterface, settings, coreMessages);
 
@@ -220,6 +225,7 @@ public class DefaultMessageResponderTest {
 
         assertEquals(0, userList.indexOf(user));
         verify(messageController).showSystemMessage("Tester logged on from 192.168.10.123");
+        verify(waitingList).removeWaitingUser(user.getCode());
     }
 
     @Test
@@ -355,6 +361,37 @@ public class DefaultMessageResponderTest {
 
         verifyZeroInteractions(messageController, userInterface);
         verifyTopic(topic, "Current topic", "Harry", 2000);
+    }
+
+    @Test
+    public void clientInfoShouldFillDetailsOnKnownUser() {
+        setUpExistingUser();
+
+        responder.clientInfo(100, "swing", 150, "linux",
+                4000, 5000);
+
+        final long logonTime = System.currentTimeMillis() - 150;
+        // Allow some slack to avoid flaky test
+        assertTrue(user.getLogonTime() <= logonTime && user.getLogonTime() > logonTime - 10);
+
+        assertEquals("swing", user.getClient());
+        assertEquals("linux", user.getOperatingSystem());
+        assertEquals(4000, user.getPrivateChatPort());
+        assertEquals(5000, user.getTcpChatPort());
+    }
+
+    @Test
+    public void clientInfoShouldDoNothingOnUnknownUser() {
+        setUpUnknownUser();
+
+        responder.clientInfo(100, "swing", 150, "linux",
+                4000, 5000);
+
+        assertEquals(0, user.getLogonTime());
+        assertEquals("<unknown>", user.getClient());
+        assertEquals("<unknown>", user.getOperatingSystem());
+        assertEquals(0, user.getPrivateChatPort());
+        assertEquals(0, user.getTcpChatPort());
     }
 
     private void verifyTopic(final Topic topic, final String expectedTopic, final String expectedNick,

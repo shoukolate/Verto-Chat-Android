@@ -92,7 +92,7 @@ public class NetworkMessages {
      */
     public void sendIdleMessage() {
         final String msg = createMessage(IDLE);
-        final boolean sent = networkService.sendMulticastMsg(msg);
+        final boolean sent = networkService.sendMessageToAllUsers(msg);
 
         if (!sent) {
             checkNetwork();
@@ -108,7 +108,7 @@ public class NetworkMessages {
      */
     public void sendTopicChangeMessage(final Topic topic) {
         final String msg = createTopicMessage(topic);
-        final boolean sent = networkService.sendMulticastMsg(msg);
+        final boolean sent = networkService.sendMessageToAllUsers(msg);
 
         if (!sent) {
             checkNetwork();
@@ -122,7 +122,7 @@ public class NetworkMessages {
      */
     public void sendTopicRequestedMessage(final Topic topic) {
         final String msg = createTopicMessage(topic);
-        networkService.sendMulticastMsg(msg);
+        networkService.sendMessageToAllUsers(msg);
     }
 
     /**
@@ -134,7 +134,7 @@ public class NetworkMessages {
      */
     public void sendAwayMessage(final String awayMsg) {
         final String msg = createMessage(AWAY) + awayMsg;
-        final boolean sent = networkService.sendMulticastMsg(msg);
+        final boolean sent = networkService.sendMessageToAllUsers(msg);
 
         if (!sent) {
             checkNetwork();
@@ -148,7 +148,7 @@ public class NetworkMessages {
      */
     public void sendBackMessage() {
         final String msg = createMessage(BACK);
-        final boolean sent = networkService.sendMulticastMsg(msg);
+        final boolean sent = networkService.sendMessageToAllUsers(msg);
 
         if (!sent) {
             checkNetwork();
@@ -168,7 +168,7 @@ public class NetworkMessages {
                 "[" + settings.getOwnColor() + "]" +
                 chatMsg;
 
-        final boolean sent = networkService.sendMulticastMsg(msg);
+        final boolean sent = networkService.sendMessageToAllUsers(msg);
 
         if (!sent) {
             checkNetwork();
@@ -181,7 +181,7 @@ public class NetworkMessages {
      */
     public void sendLogonMessage() {
         final String msg = createMessage(LOGON);
-        networkService.sendMulticastMsg(msg);
+        networkService.sendMessageToAllUsers(msg);
     }
 
     /**
@@ -189,7 +189,7 @@ public class NetworkMessages {
      */
     public void sendLogoffMessage() {
         final String msg = createMessage(LOGOFF);
-        networkService.sendMulticastMsg(msg);
+        networkService.sendMessageToAllUsers(msg);
     }
 
     /**
@@ -197,7 +197,7 @@ public class NetworkMessages {
      */
     public void sendExposeMessage() {
         final String msg = createMessage(EXPOSE);
-        networkService.sendMulticastMsg(msg);
+        networkService.sendMessageToAllUsers(msg);
     }
 
     /**
@@ -205,7 +205,7 @@ public class NetworkMessages {
      */
     public void sendExposingMessage() {
         final String msg = createMessage(EXPOSING) + me.getAwayMsg();
-        networkService.sendMulticastMsg(msg);
+        networkService.sendMessageToAllUsers(msg);
     }
 
     /**
@@ -213,7 +213,7 @@ public class NetworkMessages {
      */
     public void sendGetTopicMessage() {
         final String msg = createMessage(GETTOPIC);
-        networkService.sendMulticastMsg(msg);
+        networkService.sendMessageToAllUsers(msg);
     }
 
     /**
@@ -221,7 +221,7 @@ public class NetworkMessages {
      */
     public void sendWritingMessage() {
         final String msg = createMessage(WRITING);
-        networkService.sendMulticastMsg(msg);
+        networkService.sendMessageToAllUsers(msg);
     }
 
     /**
@@ -229,7 +229,7 @@ public class NetworkMessages {
      */
     public void sendStoppedWritingMessage() {
         final String msg = createMessage(STOPPEDWRITING);
-        networkService.sendMulticastMsg(msg);
+        networkService.sendMessageToAllUsers(msg);
     }
 
     /**
@@ -241,7 +241,7 @@ public class NetworkMessages {
      */
     public void sendNickMessage(final String newNick) {
         final String msg = createMessage(NICK, newNick);
-        final boolean sent = networkService.sendMulticastMsg(msg);
+        final boolean sent = networkService.sendMessageToAllUsers(msg);
 
         if (!sent) {
             checkNetwork();
@@ -256,7 +256,7 @@ public class NetworkMessages {
      */
     public void sendNickCrashMessage(final String crashNick) {
         final String msg = createMessage(NICKCRASH) + crashNick;
-        networkService.sendMulticastMsg(msg);
+        networkService.sendMessageToAllUsers(msg);
     }
 
     /**
@@ -272,7 +272,7 @@ public class NetworkMessages {
                 "{" + fileHash + "}" +
                 fileName;
 
-        final boolean sent = networkService.sendMulticastMsg(msg);
+        final boolean sent = networkService.sendMessageToAllUsers(msg);
 
         if (!sent) {
             checkNetwork();
@@ -300,7 +300,7 @@ public class NetworkMessages {
                 "{" + fileHash + "}" +
                 fileName;
 
-        final boolean sent = networkService.sendMulticastMsg(msg);
+        final boolean sent = networkService.sendMessageToAllUsers(msg);
 
         if (!sent) {
             checkNetwork();
@@ -324,7 +324,7 @@ public class NetworkMessages {
                 "{" + file.hashCode() + "}" +
                 file.getName();
 
-        final boolean sent = networkService.sendMulticastMsg(msg);
+        final boolean sent = networkService.sendMessageToAllUsers(msg);
 
         if (!sent) {
             checkNetwork();
@@ -340,6 +340,7 @@ public class NetworkMessages {
      * <li>Client uptime.</li>
      * <li>Operating system.</li>
      * <li>Port to connect to for private chat.</li>
+     * <li>Port to connect to for tcp chat.</li>
      * </ul>
      */
     public void sendClient() {
@@ -347,9 +348,10 @@ public class NetworkMessages {
                 "(" + me.getClient() + ")" +
                 "[" + (System.currentTimeMillis() - me.getLogonTime()) + "]" +
                 "{" + me.getOperatingSystem() + "}" +
-                "<" + me.getPrivateChatPort() + ">";
+                "<" + me.getPrivateChatPort() + ">" +
+                "/" + me.getTcpChatPort() + "\\";
 
-        networkService.sendMulticastMsg(msg);
+        networkService.sendMessageToAllUsers(msg);
     }
 
     /**
@@ -367,7 +369,7 @@ public class NetworkMessages {
                 "[" + settings.getOwnColor() + "]" +
                 privMsg;
 
-        final boolean sent = networkService.sendUDPMsg(msg, user.getIpAddress(), user.getPrivateChatPort());
+        final boolean sent = networkService.sendMessageToUser(msg, user);
 
         if (!sent) {
             checkNetwork();

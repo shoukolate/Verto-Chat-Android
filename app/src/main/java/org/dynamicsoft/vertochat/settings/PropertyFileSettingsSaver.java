@@ -35,6 +35,8 @@ import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import static org.dynamicsoft.vertochat.settings.PropertyFileSettings.SYSTEM_TRAY;
+
 /**
  * Saves settings to <code>~/.vertochat/vertochat.ini</code>.
  *
@@ -79,6 +81,7 @@ public class PropertyFileSettingsSaver implements SettingsSaver {
         properties.put(PropertyFileSettings.SMILEYS.getKey(), String.valueOf(settings.isSmileys()));
         properties.put(PropertyFileSettings.LOOK_AND_FEEL.getKey(), Tools.emptyIfNull(settings.getLookAndFeel()));
         properties.put(PropertyFileSettings.BALLOONS.getKey(), String.valueOf(settings.isBalloons()));
+        properties.put(SYSTEM_TRAY.getKey(), String.valueOf(settings.isSystemTray()));
         properties.put(PropertyFileSettings.NETWORK_INTERFACE.getKey(), Tools.emptyIfNull(settings.getNetworkInterface()));
 
         try {

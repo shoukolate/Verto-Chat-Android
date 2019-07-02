@@ -21,7 +21,6 @@
 
 package org.dynamicsoft.vertochat.misc;
 
-import org.dynamicsoft.vertochat.Constants;
 import org.dynamicsoft.vertochat.event.NetworkConnectionListener;
 import org.dynamicsoft.vertochat.junit.ExpectedException;
 import org.dynamicsoft.vertochat.message.CoreMessages;
@@ -507,7 +506,7 @@ public class ControllerTest {
         verify(dayTimer).startTimer();
         verify(idleThread).start();
 
-        verify(messageController).showSystemMessage("Welcome to VertoChat v" + Constants.APP_VERSION + "!");
+        verify(messageController).showSystemMessage("Welcome to VertoChat!");
         verify(messageController).showSystemMessage("Today is X-mass");
         verify(dateTools).currentDateToString("EEEE, d MMMM yyyy");
     }

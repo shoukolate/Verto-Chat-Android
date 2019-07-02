@@ -24,6 +24,7 @@ package org.dynamicsoft.vertochat.net;
 import org.dynamicsoft.vertochat.Constants;
 import org.dynamicsoft.vertochat.misc.ErrorHandler;
 import org.dynamicsoft.vertochat.util.Validate;
+import org.jetbrains.annotations.Nullable;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
@@ -32,6 +33,8 @@ import java.net.MulticastSocket;
 import java.net.NetworkInterface;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import static org.dynamicsoft.vertochat.net.NetworkUtils.IPTOS_RELIABILITY;
 
 /**
  * This is the class that sends multicast messages over the network.
@@ -51,6 +54,7 @@ public class MessageSender {
     /**
      * The multicast socket used for sending messages.
      */
+    @Nullable
     private MulticastSocket mcSocket;
     /**
      * The inetaddress object with the multicast ip address to send messages to.
@@ -143,7 +147,7 @@ public class MessageSender {
      * @param networkInterface The network interface to use, or <code>null</code>.
      * @return If connected to the network or not.
      */
-    public synchronized boolean startSender(final NetworkInterface networkInterface) {
+    public synchronized boolean startSender(@Nullable final NetworkInterface networkInterface) {
         LOG.log(Level.FINE, "Connecting to " + address.getHostAddress() + ":" + port + " on " + networkInterface);
 
         try {
@@ -158,6 +162,7 @@ public class MessageSender {
                     mcSocket.setNetworkInterface(networkInterface);
                 }
 
+                mcSocket.setTrafficClass(IPTOS_RELIABILITY);
                 mcSocket.joinGroup(address);
                 mcSocket.setTimeToLive(64);
                 LOG.log(Level.FINE, "Connected to " + mcSocket.getNetworkInterface());

@@ -21,6 +21,9 @@
  * This package has classes for getting message strings in the correct language.
  *
  * @author Christian Ihle
+ * <p>
+ * This package has classes for getting message strings in the correct language.
+ * @author Christian Ihle
  */
 
 /**

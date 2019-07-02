@@ -61,6 +61,7 @@ public class SettingsTest {
         assertFalse(settings.isLogging());
         assertTrue(settings.isSmileys());
         assertFalse(settings.isBalloons());
+        assertTrue(settings.isSystemTray());
 
         assertEquals("", settings.getBrowser());
         assertEquals("", settings.getLookAndFeel());
@@ -146,6 +147,26 @@ public class SettingsTest {
         settings.setAlwaysLog(true);
 
         assertTrue(settings.isLogging());
+    }
+
+    @Test
+    public void setSystemTrayShouldNotNotifyListenersIfSettingIsUnchanged() {
+        assertTrue(settings.isSystemTray());
+
+        settings.setSystemTray(true);
+
+        assertTrue(settings.isSystemTray());
+        assertNull(lastChangedSetting);
+    }
+
+    @Test
+    public void setSystemTrayShouldNotifyListenersIfSettingIsChanged() {
+        assertTrue(settings.isSystemTray());
+
+        settings.setSystemTray(false);
+
+        assertFalse(settings.isSystemTray());
+        assertEquals(Setting.SYSTEM_TRAY, lastChangedSetting);
     }
 
     @Test

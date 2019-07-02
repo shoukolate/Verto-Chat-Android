@@ -34,6 +34,8 @@ import java.net.DatagramSocket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import static org.dynamicsoft.vertochat.net.NetworkUtils.IPTOS_RELIABILITY;
+
 /**
  * Receives UDP packets sent directly to the IP address
  * of this machine.
@@ -129,6 +131,7 @@ public class UDPReceiver implements Runnable {
             while (counter < 50 && !connected) {
                 try {
                     udpSocket = new DatagramSocket(port);
+                    udpSocket.setTrafficClass(IPTOS_RELIABILITY);
                     connected = true;
 
                     // The background thread watching for messages from the network.

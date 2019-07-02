@@ -21,6 +21,9 @@
  * This package contains classes related to the user list.
  *
  * @author Christian Ihle
+ * <p>
+ * This package contains classes related to the user list.
+ * @author Christian Ihle
  */
 
 /**

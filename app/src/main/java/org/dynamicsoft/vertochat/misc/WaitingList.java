@@ -21,8 +21,8 @@
 
 package org.dynamicsoft.vertochat.misc;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * This waiting list is used to store unknown users while asking them to
@@ -34,13 +34,13 @@ import java.util.List;
  */
 public class WaitingList {
 
-    private final List<Integer> users;
+    private final Set<Integer> users;
 
     /**
      * Constructor.
      */
     public WaitingList() {
-        users = new ArrayList<>();
+        users = new HashSet<>();
     }
 
     /**
@@ -68,6 +68,6 @@ public class WaitingList {
      * @param userCode The unique code of the user to remove.
      */
     public void removeWaitingUser(final int userCode) {
-        users.remove(Integer.valueOf(userCode));
+        users.remove(userCode);
     }
 }

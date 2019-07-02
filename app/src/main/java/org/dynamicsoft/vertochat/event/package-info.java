@@ -21,6 +21,9 @@
  * Package contains listener interfaces for event handling.
  *
  * @author Christian Ihle
+ * <p>
+ * Package contains listener interfaces for event handling.
+ * @author Christian Ihle
  */
 
 /**

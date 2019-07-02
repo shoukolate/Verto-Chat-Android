@@ -21,6 +21,8 @@
 
 package org.dynamicsoft.vertochat.util;
 
+import org.jetbrains.annotations.Nullable;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -50,7 +52,7 @@ public class DateTools {
      * @return A converted date.
      * @see SimpleDateFormat
      */
-    public String dateToString(final Date date, final String format) {
+    public String dateToString(@Nullable final Date date, final String format) {
         return Tools.dateToString(date, format);
     }
 

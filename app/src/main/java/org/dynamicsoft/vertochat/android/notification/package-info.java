@@ -21,6 +21,9 @@
  * This package contains classes related to handling notifications.
  *
  * @author Christian Ihle
+ * <p>
+ * This package contains classes related to handling notifications.
+ * @author Christian Ihle
  */
 
 /**

@@ -112,7 +112,7 @@ public class MessageParser implements ReceiverListener {
             final int msgCode = Integer.parseInt(message.substring(0, exclamation));
             final String type = message.substring(exclamation + 1, hash);
             final String msgNick = message.substring(hash + 1, colon);
-            final String msg = message.substring(colon + 1, message.length());
+            final String msg = message.substring(colon + 1);
 
             final User tempme = settings.getMe();
 
@@ -122,7 +122,7 @@ public class MessageParser implements ReceiverListener {
                     final int rightBracket = msg.indexOf("]");
                     final int rgb = Integer.parseInt(msg.substring(leftBracket + 1, rightBracket));
 
-                    responder.messageArrived(msgCode, msg.substring(rightBracket + 1, msg.length()), rgb);
+                    responder.messageArrived(msgCode, msg.substring(rightBracket + 1), rgb);
                 } else if (type.equals(NetworkMessageType.LOGON)) {
                     final User newUser = new User(msgNick, msgCode);
                     newUser.setIpAddress(ipAddress);
@@ -173,7 +173,7 @@ public class MessageParser implements ReceiverListener {
                         String theTopic = null;
 
                         if (msg.length() > rightBracket + 1) {
-                            theTopic = msg.substring(rightBracket + 1, msg.length());
+                            theTopic = msg.substring(rightBracket + 1);
                         }
 
                         responder.topicChanged(msgCode, theTopic, theNick, theTime);
@@ -194,7 +194,7 @@ public class MessageParser implements ReceiverListener {
                         final int rightBracket = msg.indexOf("]");
                         final int port = Integer.parseInt(msg.substring(leftBracket + 1, rightBracket));
                         final int fileHash = Integer.parseInt(msg.substring(leftCurly + 1, rightCurly));
-                        final String fileName = msg.substring(rightCurly + 1, msg.length());
+                        final String fileName = msg.substring(rightCurly + 1);
 
                         responder.fileSendAccepted(msgCode, fileName, fileHash, port);
                     }
@@ -206,7 +206,7 @@ public class MessageParser implements ReceiverListener {
                     if (fileCode == tempme.getCode()) {
                         final int leftCurly = msg.indexOf("{");
                         final int rightCurly = msg.indexOf("}");
-                        final String fileName = msg.substring(rightCurly + 1, msg.length());
+                        final String fileName = msg.substring(rightCurly + 1);
                         final int fileHash = Integer.parseInt(msg.substring(leftCurly + 1, rightCurly));
 
                         responder.fileSendAborted(msgCode, fileName, fileHash);
@@ -222,7 +222,7 @@ public class MessageParser implements ReceiverListener {
                         final int leftBracket = msg.indexOf("[");
                         final int rightBracket = msg.indexOf("]");
                         final long byteSize = Long.parseLong(msg.substring(leftBracket + 1, rightBracket));
-                        final String fileName = msg.substring(rightCurly + 1, msg.length());
+                        final String fileName = msg.substring(rightCurly + 1);
                         final int fileHash = Integer.parseInt(msg.substring(leftCurly + 1, rightCurly));
 
                         responder.fileSend(msgCode, byteSize, fileName, msgNick, fileHash);
@@ -236,6 +236,8 @@ public class MessageParser implements ReceiverListener {
                     final int rightCurly = msg.indexOf("}");
                     final int lessThan = msg.indexOf("<");
                     final int greaterThan = msg.indexOf(">");
+                    final int slash = msg.indexOf("/");
+                    final int backslash = msg.indexOf("\\");
 
                     final String client = msg.substring(leftPara + 1, rightPara);
                     final long timeSinceLogon = Long.parseLong(msg.substring(leftBracket + 1, rightBracket));
@@ -249,7 +251,17 @@ public class MessageParser implements ReceiverListener {
                         LOG.log(Level.WARNING, "Failed to parse private chat port. message=" + message + ", ipAddress=" + ipAddress, e);
                     }
 
-                    responder.clientInfo(msgCode, client, timeSinceLogon, operatingSystem, privateChatPort);
+                    int tcpChatPort = 0;
+
+                    if (slash != -1 && backslash != -1) {
+                        try {
+                            tcpChatPort = Integer.parseInt(msg.substring(slash + 1, backslash));
+                        } catch (final NumberFormatException e) {
+                            LOG.log(Level.WARNING, "Failed to parse tcp chat port. message=" + message + ", ipAddress=" + ipAddress, e);
+                        }
+                    }
+
+                    responder.clientInfo(msgCode, client, timeSinceLogon, operatingSystem, privateChatPort, tcpChatPort);
                 }
             } else if (msgCode == tempme.getCode() && type.equals(NetworkMessageType.LOGON)) {
                 responder.meLogOn(ipAddress);

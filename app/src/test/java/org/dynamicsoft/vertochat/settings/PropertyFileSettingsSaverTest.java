@@ -38,6 +38,7 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.logging.Logger;
 
+import static org.dynamicsoft.vertochat.settings.PropertyFileSettings.SYSTEM_TRAY;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.anyString;
@@ -143,6 +144,7 @@ public class PropertyFileSettingsSaverTest {
         settings.setLogging(true);
         settings.setSmileys(false);
         settings.setBalloons(true);
+        settings.setSystemTray(false);
         settings.setBrowser("firefox");
         settings.setLookAndFeel("starwars");
         settings.setNetworkInterface("wlan2");
@@ -155,7 +157,7 @@ public class PropertyFileSettingsSaverTest {
 
         final Properties properties = propertiesCaptor.getValue();
 
-        assertEquals(10, properties.size());
+        assertEquals(11, properties.size());
 
         assertEquals("Linda", properties.get(PropertyFileSettings.NICK_NAME.getKey()));
         assertEquals("100", properties.get(PropertyFileSettings.OWN_COLOR.getKey()));
@@ -164,6 +166,7 @@ public class PropertyFileSettingsSaverTest {
         assertEquals("true", properties.get(PropertyFileSettings.LOGGING.getKey()));
         assertEquals("false", properties.get(PropertyFileSettings.SMILEYS.getKey()));
         assertEquals("true", properties.get(PropertyFileSettings.BALLOONS.getKey()));
+        assertEquals("false", properties.get(SYSTEM_TRAY.getKey()));
         assertEquals("firefox", properties.get(PropertyFileSettings.BROWSER.getKey()));
         assertEquals("starwars", properties.get(PropertyFileSettings.LOOK_AND_FEEL.getKey()));
         assertEquals("wlan2", properties.get(PropertyFileSettings.NETWORK_INTERFACE.getKey()));
@@ -184,7 +187,7 @@ public class PropertyFileSettingsSaverTest {
 
         final Properties properties = propertiesCaptor.getValue();
 
-        assertEquals(10, properties.size());
+        assertEquals(11, properties.size());
 
         assertEquals("", properties.get(PropertyFileSettings.NICK_NAME.getKey()));
         assertEquals("", properties.get(PropertyFileSettings.BROWSER.getKey()));

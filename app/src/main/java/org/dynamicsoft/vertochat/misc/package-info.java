@@ -22,6 +22,10 @@
  * functionality in the application.
  *
  * @author Christian Ihle
+ * <p>
+ * This package has a collection of classes which handle miscellaneous
+ * functionality in the application.
+ * @author Christian Ihle
  */
 
 /**

@@ -21,6 +21,9 @@
  * This package has classes related to settings.
  *
  * @author Christian Ihle
+ * <p>
+ * This package has classes related to settings.
+ * @author Christian Ihle
  */
 
 /**

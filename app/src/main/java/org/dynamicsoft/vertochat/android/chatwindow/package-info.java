@@ -21,6 +21,9 @@
  * This package contains classes related to the chat windows.
  *
  * @author Christian Ihle
+ * <p>
+ * This package contains classes related to the chat windows.
+ * @author Christian Ihle
  */
 
 /**
