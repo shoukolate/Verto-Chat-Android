@@ -1,0 +1,146 @@
+
+- VertoChat Android CHANGES
+
+
+* * version 1.5.0 (TODO)
+  - Imported backend code from KouChat v1.5.0 for desktop.
+  - Added support for using direct tcp for chat messages.
+
+
+* version 1.1.1 (05.08.2018)
+  - Updated Gradle, build tools and dependencies.
+  - Added Kotlin support.
+  - Added notification channels for Android Oreo and newer.
+  - Added button in settings to open system-provided notification settings on Android Oreo and newer.
+  - Added adaptive launcher icon for Android Oreo and newer.
+  - Migrated all styling to support library to get a consistent look and feel across versions of Android.
+  - Fixed bug where file transfer notifications would get stuck in progress while actually completed.
+
+
+* version 1.1.0 (14.08.2016)
+  - Changed oldest supported version of Android to 4.1, Jelly Bean.
+  - Converted to Gradle for building.
+  - Replaced ActionBarSherlock with AppCompat.
+  - Migrated to NotificationCompat.Builder to avoid usage of deprecated apis.
+  - Moved to PreferenceFragment to get ActionBar in the Settings.
+  - Updated white and transparent status bar icons, to make it work on Android 5 and up.
+  - Improved support for sending files with content uris.
+  - Added support for asking for permissions on Android 6.
+  - Fixed issue where user interface would sometimes hang on Android 6.
+  - Removed VertoChat from title on settings and private chat.
+  - Removed line height fix on Android 5 and up, because of bug #77941 with ignored line spacing.
+  - Added notification with progress bar and cancel button for file transfers.
+  - Added separate notifications for unread messages.
+  - Added optional usage of light, sound and vibration on notifications.
+  - Imported backend code from VertoChat v1.3.0 for desktop.
+  - Changing to switches instead of checkboxes in Settings on Lollipop and newer.
+  - Updated copyright to include 2016.
+
+
+* version 1.0.2 (26.10.2014)
+  - Lots of cleanups regarding singletons and statics.
+  - Split code for saving and loading desktop settings out of Android.
+  - Added support for sending files from file managers using the file:// protocol.
+  - Started work on translation support.
+
+
+* version 1.0.1 (17.08.2014)
+  - Fixed crash when hiding and showing VertoChat without a network connection.
+  - Added details about missing connections in the ActionBar.
+
+
+* version 1.0.0 (14.06.2014)
+  - Changed default nick name to be "NewUser" instead of a numerical id.
+  - The away message of another user, if set, is shown as a subtitle in the ActionBar of the private chat.
+  - Added support for away mode.
+
+
+* version 0.14.0 (15.04.2014)
+  - The topic, if set, is shown as a subtitle in the ActionBar of the main chat.
+  - Fixed bug where it was possible to get new lines in the nick name settings dialog.
+  - Added support for setting the topic.
+  - Added high performance wifi lock.
+  - Added color picker in the settings to choose own color and info color.
+
+
+* version 0.13.0 (01.02.2014)
+  - Increased the height of list items in the user list to 48dp, as recommended by Google.
+  - Increased the width of the user list on tablets.
+  - Added padding around the chat area.
+  - Increased the font size on tablets.
+  - Fixed issue that caused lines in the chat area with smileys to have extra padding.
+  - Updated copyright to include 2014.
+  - Fixed several crash issues when rotating.
+  - Messages are trimmed before added to the chat, to avoid blank lines.
+  - Fixed bug where it was possible to remove VertoChat notifications by swiping on some devices.
+
+
+* version 0.12.0 (08.12.2013)
+  - Fixed rare bug where quitting would not log off the network right away.
+  - Added option to enable a wake lock, to keep the device from sleeping and losing the network connection.
+  - Added xxxhdpi launcher icon for the Nexus 5.
+  - Fixed bug where the file reception dialog was unable to find the file transfer request.
+
+
+* version 0.11.0 (14.10.2013)
+  - Fixed several issues leading to memory leaks.
+  - Added basic support for receiving files.
+  - Upgraded ActionBarSherlock to version 4.4.0.
+
+* version 0.10.0 (28.07.2013)
+  - Updated to use high resolution icons.
+  - Updated to target API 16 (Android 4.1), to get a more modern look.
+  - Added ActionBar, using ActionBarSherlock for compatibility with API 10 (Android 2.3.3).
+  - Upgraded Robolectric to version 2.1.
+  - Added check for null in onDestroy of different activities to avoid NullPointerExceptions.
+  - Added support for selecting text in the chat. Android 3.0 and newer only.
+  - Stopped the software keyboard from going full screen on some phones in landscape mode.
+  - Added support for avoiding automatic text scroll when the input field has lost focus.
+    Click on some text to remove the focus from the input field. Android 3.0 and newer only.
+
+
+* version 0.9.0 (09.06.2013)
+  - Improved error handling in the private chat.
+  - Added basic support for sending files to other users with the "share/send to" feature in Android apps
+    like the Gallery or different file managers.
+  - Added wifi as a required feature in the manifest.
+  - Added support for HTC One (and probably others), which require extra permissions
+    and a MulticastLock to use multicast.
+
+
+* version 0.8.0 (07.04.2013)
+  - Added support for showing who is currently writing, using a "*" next to the nick name in the user list.
+  - Increased the width of the user list to make space for the star.
+  - Changed the chat service to a foreground service instead of a background service,
+    to avoid it being killed randomly, removing the chat history and losing the connection.
+  - Added notification support, with an icon and a status text shown in the notification area.
+    White icon means nothing to notify. Green icon means new unread messages.
+
+
+* version 0.7.0 (09.02.2013)
+  - Added support for smileys.
+  - Updated copyright to include 2013.
+
+
+* version 0.6.0 (08.12.2012)
+  - Imported backend code from VertoChat v1.2.0 for desktop.
+  - Changed license from GPL v3 to LGPL v3.
+  - Added support for private chat.
+  - Made links clickable in the chat.
+  - Made sure the text view is scrolled to the bottom when orientation changes.
+  - Updated the title of the main chat to not mention a topic if the topic is not set.
+  - Made it easier to see who you are in the user list by making "you" appear in bold text.
+
+
+* version 0.5.1 (03.06.2012):
+  - Added support for Android 4.0, Ice Cream Sandwich.
+  - Updated copyright to include 2012.
+
+
+* version 0.5 (29.11.2011):
+  - Imported backend code from VertoChat v1.1.0 for desktop.
+  - Added support for main chat.
+  - Added list of online users.
+  - Added support for changing nick name.
+  - Added display of topic.
+  - Added About dialog.

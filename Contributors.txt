@@ -1,0 +1,14 @@
+Original project by: Christian Ihle (https://github.com/blurpy)
+Forked by: Karanvir Singh
+
+== Verto Chat ==
+
+-- Graphics --
+
+Icon by Pawandeep Singh
+
+-- Testers --
+
+* Richa Kumari
+* Prabhsimran Singh Walia
+* Ajit Singh

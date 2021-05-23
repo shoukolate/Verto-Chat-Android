@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/settings_title">
+
+    <org.dynamicsoft.vertochat.android.component.NickNameEditTextPreference
+        android:dialogIcon="@drawable/ic_dialog"
+        android:dialogMessage="@string/settings_nick_name_dialog_message"
+        android:dialogTitle="@string/settings_nick_name_title"
+        android:key="@string/settings_nick_name_key"
+        android:summary="@string/settings_nick_name_summary"
+        android:title="@string/settings_nick_name_title" />
+
+    <org.dynamicsoft.vertochat.android.component.HoloColorPickerPreference
+        android:defaultValue="-15987646"
+        android:dialogIcon="@drawable/ic_dialog"
+        android:dialogTitle="@string/settings_own_color_title"
+        android:key="@string/settings_own_color_key"
+        android:summary="@string/settings_own_color_summary"
+        android:title="@string/settings_own_color_title" />
+
+    <org.dynamicsoft.vertochat.android.component.HoloColorPickerPreference
+        android:defaultValue="-16759040"
+        android:dialogIcon="@drawable/ic_dialog"
+        android:dialogTitle="@string/settings_sys_color_title"
+        android:key="@string/settings_sys_color_key"
+        android:summary="@string/settings_sys_color_summary"
+        android:title="@string/settings_sys_color_title" />
+
+    <CheckBoxPreference
+        android:key="@string/settings_wake_lock_key"
+        android:summary="@string/settings_wake_lock_summary"
+        android:title="@string/settings_wake_lock_title"
+        android:widgetLayout="@layout/two_state_preference" />
+
+    <Preference
+        android:summary="@string/settings_notification_open_external_summary"
+        android:title="@string/settings_notification_open_external_title">
+        <intent android:action="android.settings.APP_NOTIFICATION_SETTINGS">
+            <extra
+                android:name="android.provider.extra.APP_PACKAGE"
+                android:value="org.dynamicsoft.vertochat.android" />
+        </intent>
+    </Preference>
+
+</PreferenceScreen>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Layout of the private chat. -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <ScrollView
+        android:id="@+id/privateChatScroll"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/privateChatInput"
+        android:layout_alignParentLeft="true"
+        android:background="#fff">
+
+        <TextView
+            android:id="@+id/privateChatView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingMultiplier="@dimen/line_spacing_multiplier"
+            android:padding="@dimen/chat_view_padding"
+            android:textIsSelectable="true"
+            android:textSize="@dimen/text_size" />
+    </ScrollView>
+
+    <EditText
+        android:id="@+id/privateChatInput"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:imeOptions="actionSend|flagNoFullscreen"
+        android:inputType="text"
+        android:singleLine="true" />
+
+</RelativeLayout>
